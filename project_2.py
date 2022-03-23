@@ -320,7 +320,7 @@ elif choice == 'Collaborative filtering':
     st.write('''RMSE - Root Mean Square Error có 1 kết quả không mấy khả quan tại lần đầu train cho bộ dữ liệu.''')
     st.image("images/ALS_3.png")
     st.write('''RMSE sau nhiều thử nghiệm đã có 1 kết quả tốt hơn. Chúng ta sẽ sử dụng kết quá này để dự báo cho toàn bộ user trong bộ dữ liệu.''')
-    user_recs = pd.read_csv('data/user_recs.zip')
+    user_recs = pd.read_csv('data/user_recs_100.csv')
     # Select box 
     customer_id = user_recs['customer_id'].drop_duplicates()
     customer_id_choice = st.selectbox('Please choose a user to see the recommended items::', customer_id)
@@ -335,7 +335,7 @@ elif choice == 'Collaborative filtering':
             st.image(select_product['image'][0])
         with col[1]:
             formatted_string = "{:,.0f} VNĐ".format(select_product['price'][0])
-            st.write(select_product['name_x'][0])
+            st.write(select_product['name'][0])
             st.write("Thương hiệu: ",select_product['brand'][0])
             # st.write("Miêu tả sản phẩm: ",select_product['description_y'][0])
             st.write("Giá: ",formatted_string)
